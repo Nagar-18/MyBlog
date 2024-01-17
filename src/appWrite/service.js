@@ -28,6 +28,7 @@ class AuthService {
       return user;
     } catch (error) {
       console.log("config:service:createaccount", error);
+      return null;
     }
   }
   async getCurrentUser() {

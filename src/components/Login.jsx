@@ -7,7 +7,7 @@ import {useForm} from 'react-hook-form'
 import {Buttonx, Input, Logo} from './index'
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
- 
+
 
 function Login() {
     const navigate = useNavigate()
@@ -28,12 +28,27 @@ function Login() {
                 {
                     const notify = () => toast.success("Login SuccessFully",{ position: toast.POSITION.TOP_CENTER,});
                     notify();
-                    console.log("tpaste")
+                   
                     alert("logged")
                 }
+
                 navigate("/")
             }
+            else {  toast('🦄 Invalid Credentials!', {
+position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});}
         } catch (error) {
+             
+            
+          
             setError(error.message)
         }
     }
@@ -82,6 +97,7 @@ function Login() {
                     required: true,
                 })}
                 />
+                <ToastContainer/>
                 <Buttonx
                 type="submit"
                 className="w-2/3 bg-slate-600"
